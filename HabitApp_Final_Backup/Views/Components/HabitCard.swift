@@ -1,5 +1,4 @@
 import SwiftUI
-import CoreData
 
 struct HabitCard: View {
     let habit: Habit
@@ -36,7 +35,7 @@ struct HabitCard: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(habit.title ?? "")
+                Text(habit.title)
                     .font(.headline)
                     .foregroundColor(.primary)
                 
@@ -84,29 +83,10 @@ struct HabitCard: View {
 }
 
 #Preview {
-    let context = CoreDataManager.shared.context
-    let habit1 = Habit(context: context)
-    habit1.title = "每日阅读"
-    habit1.id = UUID()
-    habit1.goalType = "daily"
-    habit1.createdAt = Date()
-    
-    let habit2 = Habit(context: context)
-    habit2.title = "运动30分钟"
-    habit2.id = UUID()
-    habit2.goalType = "daily"
-    habit2.createdAt = Date()
-    
-    let habit3 = Habit(context: context)
-    habit3.title = "早睡早起"
-    habit3.id = UUID()
-    habit3.goalType = "daily"
-    habit3.createdAt = Date()
-    
-    return VStack(spacing: 12) {
-        HabitCard(habit: habit1)
-        HabitCard(habit: habit2)
-        HabitCard(habit: habit3)
+    VStack(spacing: 12) {
+        HabitCard(habit: Habit(title: "每日阅读"))
+        HabitCard(habit: Habit(title: "运动30分钟"))
+        HabitCard(habit: Habit(title: "早睡早起"))
     }
     .padding()
 }

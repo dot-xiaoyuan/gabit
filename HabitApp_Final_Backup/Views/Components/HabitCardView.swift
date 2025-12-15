@@ -86,7 +86,7 @@ struct HabitCardView: View {
                 habitViewModel.deleteHabit(habit)
             }
         } message: {
-            Text("确定要删除习惯" + (habit.title ?? "未知") + "吗？此操作无法撤销。")
+            Text("确定要删除习惯"\(habit.title ?? "")"吗？此操作无法撤销。")
         }
     }
     

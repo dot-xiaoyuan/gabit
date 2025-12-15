@@ -7,48 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1234567890ABCDEF1234567 /* HabitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234566 /* HabitApp.swift */; };
-		A1234567890ABCDEF1234569 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234568 /* ContentView.swift */; };
-		A1234567890ABCDEF123456B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF123456A /* Assets.xcassets */; };
-		A1234567890ABCDEF123456E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF123456D /* Preview Assets.xcassets */; };
-		A1234567890ABCDEF1234570 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF123456F /* TodayView.swift */; };
-		A1234567890ABCDEF1234572 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234571 /* HistoryView.swift */; };
-		A1234567890ABCDEF1234574 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234573 /* ProfileView.swift */; };
-		A1234567890ABCDEF1234576 /* HabitCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234575 /* HabitCard.swift */; };
-		A1234567890ABCDEF1234578 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234577 /* Constants.swift */; };
-		A1234567890ABCDEF123457A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234579 /* DateExtensions.swift */; };
-		A1234567890ABCDEF123457B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234590 /* CoreDataManager.swift */; };
-		A1234567890ABCDEF123457D /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF123457E /* HabitViewModel.swift */; };
-		A1234567890ABCDEF123457F /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234580 /* DailyViewModel.swift */; };
-		A1234567890ABCDEF1234581 /* HabitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234582 /* HabitCardView.swift */; };
-		A1234567890ABCDEF1234583 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234584 /* AddHabitView.swift */; };
-		A1234567890ABCDEF1234585 /* EditHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234586 /* EditHabitView.swift */; };
-		A1234567890ABCDEF1234587 /* HabitApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234588 /* HabitApp.xcdatamodeld */; };
+		AA0000000000000000000001 /* HabitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000002 /* HabitApp.swift */; };
+		AA0000000000000000000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000004 /* ContentView.swift */; };
+		AA0000000000000000000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000006 /* Assets.xcassets */; };
+		AA0000000000000000000007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000008 /* Preview Assets.xcassets */; };
+		AA0000000000000000000009 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000A /* TodayView.swift */; };
+		AA000000000000000000000B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000C /* HistoryView.swift */; };
+		AA000000000000000000000D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000000E /* ProfileView.swift */; };
+		AA000000000000000000000F /* HabitCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000010 /* HabitCard.swift */; };
+		AA0000000000000000000011 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000012 /* Constants.swift */; };
+		AA0000000000000000000013 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000014 /* DateExtensions.swift */; };
+		AA0000000000000000000015 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000016 /* CoreDataManager.swift */; };
+		AA0000000000000000000017 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000018 /* HabitViewModel.swift */; };
+		AA0000000000000000000019 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001A /* DailyViewModel.swift */; };
+		AA000000000000000000001B /* HabitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001C /* HabitCardView.swift */; };
+		AA000000000000000000001D /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001E /* AddHabitView.swift */; };
+		AA000000000000000000001F /* EditHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000020 /* EditHabitView.swift */; };
+		AA0000000000000000000036 /* HabitApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000037 /* HabitApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1234567890ABCDEF1234563 /* HabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1234567890ABCDEF1234566 /* HabitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitApp.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF123456A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A1234567890ABCDEF123456D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A1234567890ABCDEF123456F /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234571 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234573 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234575 /* HabitCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCard.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234577 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234579 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234590 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF123457E /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234580 /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234582 /* HabitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234584 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234586 /* EditHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitView.swift; sourceTree = "<group>"; };
-		A1234567890ABCDEF1234588 /* HabitApp.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitApp.xcdatamodeld; sourceTree = "<group>"; };
+		AA0000000000000000000021 /* HabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000002 /* HabitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitApp.swift; sourceTree = "<group>"; };
+		AA0000000000000000000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0000000000000000000008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AA000000000000000000000A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		AA000000000000000000000C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		AA000000000000000000000E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000010 /* HabitCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCard.swift; sourceTree = "<group>"; };
+		AA0000000000000000000012 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AA0000000000000000000014 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		AA0000000000000000000016 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AA0000000000000000000018 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		AA000000000000000000001A /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
+		AA000000000000000000001C /* HabitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardView.swift; sourceTree = "<group>"; };
+		AA000000000000000000001E /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000020 /* EditHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000037 /* HabitApp.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitApp.xcdatamodeld; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A1234567890ABCDEF1234560 /* Frameworks */ = {
+		AA0000000000000000000022 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,112 +58,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A1234567890ABCDEF1234559 = {
+		AA0000000000000000000023 = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234564 /* HabitApp */,
-				A1234567890ABCDEF1234565 /* Products */,
+				AA0000000000000000000024 /* HabitApp */,
+				AA0000000000000000000025 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234564 /* HabitApp */ = {
+		AA0000000000000000000024 /* HabitApp */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234566 /* HabitApp.swift */,
-				A1234567890ABCDEF1234568 /* ContentView.swift */,
-				A1234567890ABCDEF1234591 /* Views */,
-				A1234567890ABCDEF1234592 /* ViewModels */,
-				A1234567890ABCDEF1234593 /* Services */,
-				A1234567890ABCDEF1234594 /* Utils */,
-				A1234567890ABCDEF1234595 /* Models */,
-				A1234567890ABCDEF123456A /* Assets.xcassets */,
-				A1234567890ABCDEF123456C /* Preview Content */,
+				AA0000000000000000000002 /* HabitApp.swift */,
+				AA0000000000000000000004 /* ContentView.swift */,
+				AA0000000000000000000026 /* Views */,
+				AA0000000000000000000027 /* ViewModels */,
+				AA0000000000000000000028 /* Services */,
+				AA0000000000000000000029 /* Utils */,
+				AA0000000000000000000006 /* Assets.xcassets */,
+				AA000000000000000000002A /* Preview Content */,
 			);
-			path = HabitApp;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234565 /* Products */ = {
+		AA0000000000000000000025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234563 /* HabitApp.app */,
+				AA0000000000000000000021 /* HabitApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF123456C /* Preview Content */ = {
+		AA000000000000000000002A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF123456D /* Preview Assets.xcassets */,
+				AA0000000000000000000008 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234591 /* Views */ = {
+		AA0000000000000000000026 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF123456F /* TodayView.swift */,
-				A1234567890ABCDEF1234571 /* HistoryView.swift */,
-				A1234567890ABCDEF1234573 /* ProfileView.swift */,
-				A1234567890ABCDEF1234596 /* Components */,
+				AA000000000000000000000A /* TodayView.swift */,
+				AA000000000000000000000C /* HistoryView.swift */,
+				AA000000000000000000000E /* ProfileView.swift */,
+				AA000000000000000000002B /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234596 /* Components */ = {
+		AA000000000000000000002B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234575 /* HabitCard.swift */,
-				A1234567890ABCDEF1234582 /* HabitCardView.swift */,
-				A1234567890ABCDEF1234584 /* AddHabitView.swift */,
-				A1234567890ABCDEF1234586 /* EditHabitView.swift */,
+				AA0000000000000000000010 /* HabitCard.swift */,
+				AA000000000000000000001C /* HabitCardView.swift */,
+				AA000000000000000000001E /* AddHabitView.swift */,
+				AA0000000000000000000020 /* EditHabitView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234592 /* ViewModels */ = {
+		AA0000000000000000000027 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF123457E /* HabitViewModel.swift */,
-				A1234567890ABCDEF1234580 /* DailyViewModel.swift */,
+				AA0000000000000000000018 /* HabitViewModel.swift */,
+				AA000000000000000000001A /* DailyViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234593 /* Services */ = {
+		AA0000000000000000000028 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234590 /* CoreDataManager.swift */,
-				A1234567890ABCDEF1234588 /* HabitApp.xcdatamodeld */,
+				AA0000000000000000000016 /* CoreDataManager.swift */,
+				AA0000000000000000000037 /* HabitApp.xcdatamodeld */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234594 /* Utils */ = {
+		AA0000000000000000000029 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234577 /* Constants.swift */,
-				A1234567890ABCDEF1234579 /* DateExtensions.swift */,
+				AA0000000000000000000012 /* Constants.swift */,
+				AA0000000000000000000014 /* DateExtensions.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		A1234567890ABCDEF1234595 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1234567890ABCDEF1234562 /* HabitApp */ = {
+		AA000000000000000000002C /* HabitApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1234567890ABCDEF123457B /* Build configuration list for PBXNativeTarget "HabitApp" */;
+			buildConfigurationList = AA000000000000000000002D /* Build configuration list for PBXNativeTarget "HabitApp" */;
 			buildPhases = (
-				A1234567890ABCDEF123455F /* Sources */,
-				A1234567890ABCDEF1234560 /* Frameworks */,
-				A1234567890ABCDEF1234561 /* Resources */,
+				AA000000000000000000002E /* Sources */,
+				AA0000000000000000000022 /* Frameworks */,
+				AA000000000000000000002F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -171,25 +162,25 @@
 			);
 			name = HabitApp;
 			productName = HabitApp;
-			productReference = A1234567890ABCDEF1234563 /* HabitApp.app */;
+			productReference = AA0000000000000000000021 /* HabitApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A1234567890ABCDEF123455B /* Project object */ = {
+		AA0000000000000000000030 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					A1234567890ABCDEF1234562 = {
+					AA000000000000000000002C = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = A1234567890ABCDEF123455E /* Build configuration list for PBXProject "HabitApp" */;
+			buildConfigurationList = AA0000000000000000000031 /* Build configuration list for PBXProject "HabitApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -197,55 +188,55 @@
 				en,
 				Base,
 			);
-			mainGroup = A1234567890ABCDEF1234559;
-			productRefGroup = A1234567890ABCDEF1234565 /* Products */;
+			mainGroup = AA0000000000000000000023;
+			productRefGroup = AA0000000000000000000025 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1234567890ABCDEF1234562 /* HabitApp */,
+				AA000000000000000000002C /* HabitApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A1234567890ABCDEF1234561 /* Resources */ = {
+		AA000000000000000000002F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1234567890ABCDEF123456E /* Preview Assets.xcassets in Resources */,
-				A1234567890ABCDEF123456B /* Assets.xcassets in Resources */,
+				AA0000000000000000000007 /* Preview Assets.xcassets in Resources */,
+				AA0000000000000000000005 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A1234567890ABCDEF123455F /* Sources */ = {
+		AA000000000000000000002E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1234567890ABCDEF1234569 /* ContentView.swift in Sources */,
-				A1234567890ABCDEF1234570 /* TodayView.swift in Sources */,
-				A1234567890ABCDEF1234572 /* HistoryView.swift in Sources */,
-				A1234567890ABCDEF1234574 /* ProfileView.swift in Sources */,
-				A1234567890ABCDEF1234576 /* HabitCard.swift in Sources */,
-				A1234567890ABCDEF1234578 /* Constants.swift in Sources */,
-				A1234567890ABCDEF123457A /* DateExtensions.swift in Sources */,
-				A1234567890ABCDEF123457B /* CoreDataManager.swift in Sources */,
-				A1234567890ABCDEF123457D /* HabitViewModel.swift in Sources */,
-				A1234567890ABCDEF123457F /* DailyViewModel.swift in Sources */,
-				A1234567890ABCDEF1234581 /* HabitCardView.swift in Sources */,
-				A1234567890ABCDEF1234583 /* AddHabitView.swift in Sources */,
-				A1234567890ABCDEF1234585 /* EditHabitView.swift in Sources */,
-				A1234567890ABCDEF1234587 /* HabitApp.xcdatamodeld in Sources */,
-				A1234567890ABCDEF1234567 /* HabitApp.swift in Sources */,
+				AA0000000000000000000003 /* ContentView.swift in Sources */,
+				AA0000000000000000000009 /* TodayView.swift in Sources */,
+				AA000000000000000000000B /* HistoryView.swift in Sources */,
+				AA000000000000000000000D /* ProfileView.swift in Sources */,
+				AA000000000000000000000F /* HabitCard.swift in Sources */,
+				AA0000000000000000000011 /* Constants.swift in Sources */,
+				AA0000000000000000000013 /* DateExtensions.swift in Sources */,
+				AA0000000000000000000015 /* CoreDataManager.swift in Sources */,
+				AA0000000000000000000017 /* HabitViewModel.swift in Sources */,
+				AA0000000000000000000019 /* DailyViewModel.swift in Sources */,
+				AA000000000000000000001B /* HabitCardView.swift in Sources */,
+				AA000000000000000000001D /* AddHabitView.swift in Sources */,
+				AA000000000000000000001F /* EditHabitView.swift in Sources */,
+				AA0000000000000000000036 /* HabitApp.xcdatamodeld in Sources */,
+				AA0000000000000000000001 /* HabitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A1234567890ABCDEF123457C /* Debug */ = {
+		AA0000000000000000000032 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -308,7 +299,7 @@
 			};
 			name = Debug;
 		};
-		A1234567890ABCDEF123457D /* Release */ = {
+		AA0000000000000000000033 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -364,10 +355,9 @@
 			};
 			name = Release;
 		};
-		A1234567890ABCDEF123457E /* Debug */ = {
+		AA0000000000000000000034 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -392,10 +382,9 @@
 			};
 			name = Debug;
 		};
-		A1234567890ABCDEF123457F /* Release */ = {
+		AA0000000000000000000035 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -423,25 +412,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1234567890ABCDEF123455E /* Build configuration list for PBXProject "HabitApp" */ = {
+		AA0000000000000000000031 /* Build configuration list for PBXProject "HabitApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1234567890ABCDEF123457C /* Debug */,
-				A1234567890ABCDEF123457D /* Release */
+				AA0000000000000000000032 /* Debug */,
+				AA0000000000000000000033 /* Release */
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1234567890ABCDEF123457B /* Build configuration list for PBXNativeTarget "HabitApp" */ = {
+		AA000000000000000000002D /* Build configuration list for PBXNativeTarget "HabitApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1234567890ABCDEF123457E /* Debug */,
-				A1234567890ABCDEF123457F /* Release */
+				AA0000000000000000000034 /* Debug */,
+				AA0000000000000000000035 /* Release */
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A1234567890ABCDEF123455B /* Project object */;
+	rootObject = AA0000000000000000000030 /* Project object */;
 }

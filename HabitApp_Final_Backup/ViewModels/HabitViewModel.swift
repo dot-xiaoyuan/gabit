@@ -33,7 +33,7 @@ class HabitViewModel: ObservableObject {
         }
         
         // 检查是否已存在相同标题的习惯
-        if habits.contains(where: { ($0.title ?? "").lowercased() == title.lowercased() }) {
+        if habits.contains(where: { $0.title.lowercased() == title.lowercased() }) {
             errorMessage = "已存在相同名称的习惯"
             return false
         }
@@ -57,7 +57,7 @@ class HabitViewModel: ObservableObject {
         }
         
         // 检查是否已存在相同标题的习惯（排除当前习惯）
-        if habits.contains(where: { $0.id != habit.id && ($0.title ?? "").lowercased() == newTitle.lowercased() }) {
+        if habits.contains(where: { $0.id != habit.id && $0.title.lowercased() == newTitle.lowercased() }) {
             errorMessage = "已存在相同名称的习惯"
             return false
         }
