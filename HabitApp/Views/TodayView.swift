@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct TodayView: View {
-    @StateObject private var habitViewModel = HabitViewModel()
-    @StateObject private var dailyViewModel = DailyViewModel()
-    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    @EnvironmentObject private var habitViewModel: HabitViewModel
+    @EnvironmentObject private var dailyViewModel: DailyViewModel
+    @EnvironmentObject private var subscriptionManager: SubscriptionManager
     @State private var showingAddHabit = false
     @State private var newHabitTitle = ""
     
@@ -143,7 +143,9 @@ struct TodayView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .sheet(isPresented: $showingAddHabit) {
-            AddHabitView(habitViewModel: habitViewModel)
+            AddHabitView()
+                .environmentObject(habitViewModel)
+                .environmentObject(subscriptionManager)
         }
         .alert("错误", isPresented: .constant(habitViewModel.errorMessage != nil)) {
             Button("确定") {
@@ -165,4 +167,7 @@ struct TodayView: View {
 
 #Preview {
     TodayView()
+        .environmentObject(HabitViewModel())
+        .environmentObject(DailyViewModel())
+        .environmentObject(SubscriptionManager.shared)
 }

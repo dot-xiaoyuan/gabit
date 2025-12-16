@@ -12,6 +12,11 @@ class CoreDataManager: ObservableObject {
                 fatalError("Core Data error: \(error)")
             }
         }
+        
+        // 合并策略：以内存中的修改为主，避免冲突导致崩溃
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.shouldDeleteInaccessibleFaults = true
         return container
     }()
     
@@ -23,11 +28,30 @@ class CoreDataManager: ObservableObject {
     
     // MARK: - Save Context
     func save() {
-        if context.hasChanges {
+        guard context.hasChanges else { return }
+        do {
+            try context.save()
+        } catch {
+            // 轻量日志，便于调试
+            print("Save error: \(error)")
+        }
+    }
+    
+    // MARK: - Background Write
+    /// 在后台上下文执行写操作，写完自动保存
+    func performBackgroundWrite(_ work: @escaping (NSManagedObjectContext) -> Void) {
+        persistentContainer.performBackgroundTask { bgContext in
+            bgContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            bgContext.automaticallyMergesChangesFromParent = true
+            bgContext.undoManager = nil
+            
+            work(bgContext)
+            
+            guard bgContext.hasChanges else { return }
             do {
-                try context.save()
+                try bgContext.save()
             } catch {
-                print("Save error: \(error)")
+                print("Background save error: \(error)")
             }
         }
     }

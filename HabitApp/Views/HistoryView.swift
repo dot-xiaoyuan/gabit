@@ -1,10 +1,11 @@
 import SwiftUI
+import CoreData
 
 struct HistoryView: View {
-    @StateObject private var habitViewModel = HabitViewModel()
+    @EnvironmentObject private var habitViewModel: HabitViewModel
+    @EnvironmentObject private var dailyViewModel: DailyViewModel
+    @EnvironmentObject private var subscriptionManager: SubscriptionManager
     @StateObject private var historyViewModel = HistoryViewModel()
-    @StateObject private var dailyViewModel = DailyViewModel()
-    @StateObject private var subscriptionManager = SubscriptionManager.shared
     
     var body: some View {
         NavigationView {
@@ -182,10 +183,16 @@ struct HistoryView: View {
                 historyViewModel.load(for: historyViewModel.selectedDate)
                 habitViewModel.loadHabits()
             }
+            .onReceive(NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)) { _ in
+                historyViewModel.load(for: historyViewModel.selectedDate)
+            }
         }
     }
 }
 
 #Preview {
     HistoryView()
+        .environmentObject(HabitViewModel())
+        .environmentObject(DailyViewModel())
+        .environmentObject(SubscriptionManager.shared)
 }

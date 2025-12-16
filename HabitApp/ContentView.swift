@@ -1,6 +1,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var habitViewModel = HabitViewModel()
+    @StateObject private var dailyViewModel = DailyViewModel()
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    
     var body: some View {
         TabView {
             TodayView()
@@ -22,6 +26,9 @@ struct ContentView: View {
                 }
         }
         .accentColor(.blue)
+        .environmentObject(habitViewModel)
+        .environmentObject(dailyViewModel)
+        .environmentObject(subscriptionManager)
     }
 }
 

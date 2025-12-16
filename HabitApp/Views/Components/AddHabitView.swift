@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct AddHabitView: View {
-    @ObservedObject var habitViewModel: HabitViewModel
-    @StateObject private var subscriptionManager = SubscriptionManager.shared
+    @EnvironmentObject private var habitViewModel: HabitViewModel
+    @EnvironmentObject private var subscriptionManager: SubscriptionManager
     @Environment(\.dismiss) private var dismiss
     @State private var habitTitle = ""
     
@@ -75,5 +75,7 @@ struct AddHabitView: View {
 }
 
 #Preview {
-    AddHabitView(habitViewModel: HabitViewModel())
+    AddHabitView()
+        .environmentObject(HabitViewModel())
+        .environmentObject(SubscriptionManager.shared)
 }
