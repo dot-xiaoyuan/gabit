@@ -20,6 +20,10 @@
 		AA0000000000000000000015 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000016 /* CoreDataManager.swift */; };
 		AA0000000000000000000017 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000018 /* HabitViewModel.swift */; };
 		AA0000000000000000000019 /* DailyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001A /* DailyViewModel.swift */; };
+		AA000000000000000000003A /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000003B /* OpenAIService.swift */; };
+		AA0000000000000000000038 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000039 /* HistoryViewModel.swift */; };
+		AA000000000000000000003E /* AIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000003F /* AIConfig.swift */; };
+		AA000000000000000000003C /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000003D /* SubscriptionManager.swift */; };
 		AA000000000000000000001B /* HabitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001C /* HabitCardView.swift */; };
 		AA000000000000000000001D /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001E /* AddHabitView.swift */; };
 		AA000000000000000000001F /* EditHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000020 /* EditHabitView.swift */; };
@@ -41,6 +45,10 @@
 		AA0000000000000000000016 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AA0000000000000000000018 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		AA000000000000000000001A /* DailyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewModel.swift; sourceTree = "<group>"; };
+		AA000000000000000000003B /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		AA0000000000000000000039 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		AA000000000000000000003F /* AIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIConfig.swift; sourceTree = "<group>"; };
+		AA000000000000000000003D /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		AA000000000000000000001C /* HabitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardView.swift; sourceTree = "<group>"; };
 		AA000000000000000000001E /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		AA0000000000000000000020 /* EditHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitView.swift; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 			children = (
 				AA0000000000000000000018 /* HabitViewModel.swift */,
 				AA000000000000000000001A /* DailyViewModel.swift */,
+				AA0000000000000000000039 /* HistoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -131,6 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				AA0000000000000000000016 /* CoreDataManager.swift */,
+				AA000000000000000000003B /* OpenAIService.swift */,
+				AA000000000000000000003F /* AIConfig.swift */,
+				AA000000000000000000003D /* SubscriptionManager.swift */,
 				AA0000000000000000000037 /* HabitApp.xcdatamodeld */,
 			);
 			path = Services;
@@ -225,6 +237,10 @@
 				AA0000000000000000000015 /* CoreDataManager.swift in Sources */,
 				AA0000000000000000000017 /* HabitViewModel.swift in Sources */,
 				AA0000000000000000000019 /* DailyViewModel.swift in Sources */,
+				AA000000000000000000003A /* OpenAIService.swift in Sources */,
+				AA0000000000000000000038 /* HistoryViewModel.swift in Sources */,
+				AA000000000000000000003E /* AIConfig.swift in Sources */,
+				AA000000000000000000003C /* SubscriptionManager.swift in Sources */,
 				AA000000000000000000001B /* HabitCardView.swift in Sources */,
 				AA000000000000000000001D /* AddHabitView.swift in Sources */,
 				AA000000000000000000001F /* EditHabitView.swift in Sources */,

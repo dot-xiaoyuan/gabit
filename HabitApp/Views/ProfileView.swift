@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var isSubscribed = false
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
     
     var body: some View {
         NavigationView {
@@ -29,25 +29,23 @@ struct ProfileView: View {
                 // 订阅状态
                 Section {
                     HStack {
-                        Image(systemName: isSubscribed ? "crown.fill" : "crown")
-                            .foregroundColor(isSubscribed ? .yellow : .gray)
+                        Image(systemName: subscriptionManager.isSubscribed ? "crown.fill" : "crown")
+                            .foregroundColor(subscriptionManager.isSubscribed ? .yellow : .gray)
                         
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(isSubscribed ? "高级会员" : "免费用户")
+                            Text(subscriptionManager.isSubscribed ? "高级会员" : "免费用户")
                                 .fontWeight(.medium)
-                            Text(isSubscribed ? "享受所有功能" : "升级解锁更多功能")
+                            Text(subscriptionManager.isSubscribed ? "周总结 / 无限习惯 / 备份" : "升级解锁更多功能")
                                 .font(.caption)
                                 .foregroundColor(.gray)
                         }
                         
                         Spacer()
                         
-                        if !isSubscribed {
-                            Button("订阅") {
-                                // TODO: 实现订阅功能
-                            }
-                            .foregroundColor(.blue)
+                        Button(subscriptionManager.isSubscribed ? "取消" : "订阅") {
+                            subscriptionManager.toggle()
                         }
+                        .foregroundColor(.blue)
                     }
                     .padding(.vertical, 4)
                 }

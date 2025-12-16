@@ -3,6 +3,7 @@ import SwiftUI
 struct TodayView: View {
     @StateObject private var habitViewModel = HabitViewModel()
     @StateObject private var dailyViewModel = DailyViewModel()
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showingAddHabit = false
     @State private var newHabitTitle = ""
     
@@ -10,6 +11,30 @@ struct TodayView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
+                    if !subscriptionManager.isSubscribed && habitViewModel.habits.count >= Constants.freeUserHabitLimit {
+                        HStack(spacing: 12) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.orange)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("免费上限已满 \(Constants.freeUserHabitLimit) 个")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                Text("升级后可创建更多习惯，并解锁周总结等功能")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                Button("升级到高级版") {
+                                    subscriptionManager.subscribe()
+                                }
+                                .font(.caption)
+                                .foregroundColor(.blue)
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color.orange.opacity(0.1))
+                        .cornerRadius(12)
+                    }
+                    
                     // 今日习惯列表
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
@@ -64,6 +89,13 @@ struct TodayView: View {
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
+                        
+                        if dailyViewModel.showSaveSuccess {
+                            Text("已保存")
+                                .font(.caption)
+                                .foregroundColor(.green)
+                                .transition(.opacity)
+                        }
                     }
                     .padding()
                     .background(Color(.systemGray6))

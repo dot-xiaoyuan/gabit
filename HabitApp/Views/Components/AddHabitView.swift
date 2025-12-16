@@ -2,9 +2,9 @@ import SwiftUI
 
 struct AddHabitView: View {
     @ObservedObject var habitViewModel: HabitViewModel
+    @StateObject private var subscriptionManager = SubscriptionManager.shared
     @Environment(\.dismiss) private var dismiss
     @State private var habitTitle = ""
-    @State private var isSubscribed = false
     
     var body: some View {
         NavigationView {
@@ -21,7 +21,7 @@ struct AddHabitView: View {
                 }
                 
                 // 订阅提示
-                if !isSubscribed && habitViewModel.habits.count >= Constants.freeUserHabitLimit - 1 {
+                if !subscriptionManager.isSubscribed && habitViewModel.habits.count >= Constants.freeUserHabitLimit - 1 {
                     VStack(spacing: 8) {
                         HStack {
                             Image(systemName: "crown.fill")
@@ -32,7 +32,7 @@ struct AddHabitView: View {
                         }
                         
                         Button("升级到高级版") {
-                            // TODO: 实现订阅功能
+                            subscriptionManager.subscribe()
                         }
                         .font(.caption)
                         .foregroundColor(.blue)
@@ -63,7 +63,6 @@ struct AddHabitView: View {
             }
         }
         .onAppear {
-            checkSubscriptionStatus()
         }
     }
     
@@ -72,11 +71,6 @@ struct AddHabitView: View {
         if success {
             dismiss()
         }
-    }
-    
-    private func checkSubscriptionStatus() {
-        // 这里暂时硬编码，后续会接入真实的订阅检查
-        isSubscribed = UserDefaults.standard.bool(forKey: Constants.UserDefaults.isSubscribed)
     }
 }
 

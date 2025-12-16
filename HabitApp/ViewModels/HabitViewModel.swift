@@ -20,6 +20,7 @@ class HabitViewModel: ObservableObject {
     
     // MARK: - Habit Management
     func createHabit(title: String) -> Bool {
+        // 免费版限制 + 唯一性校验
         // 检查免费用户限制
         if !isSubscribed() && habits.count >= Constants.freeUserHabitLimit {
             errorMessage = "免费用户最多只能创建\(Constants.freeUserHabitLimit)个习惯"
@@ -83,6 +84,9 @@ class HabitViewModel: ObservableObject {
             status: statusValue,
             note: note
         )
+        
+        // Core Data 更新不会自动触发 SwiftUI 刷新，这里手动通知
+        objectWillChange.send()
     }
     
     func getTodayRecord(for habit: Habit) -> DailyRecord? {
@@ -111,8 +115,7 @@ class HabitViewModel: ObservableObject {
     
     // MARK: - Subscription Check
     private func isSubscribed() -> Bool {
-        // 这里暂时返回false，后续会接入真实的订阅检查
-        return UserDefaults.standard.bool(forKey: Constants.UserDefaults.isSubscribed)
+        SubscriptionManager.shared.isSubscribed
     }
     
     // MARK: - Error Handling
