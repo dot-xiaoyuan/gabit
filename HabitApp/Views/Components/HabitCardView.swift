@@ -6,77 +6,103 @@ struct HabitCardView: View {
     @ObservedObject var habitViewModel: HabitViewModel
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
+    @State private var noteText: String = ""
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(habit.title ?? "")
-                    .font(.headline)
-                    .foregroundColor(.primary)
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(habit.title ?? "")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    
+                    HStack {
+                        Text(statusText)
+                            .font(.caption)
+                            .foregroundColor(statusColor)
+                        
+                        Spacer()
+                        
+                        Text(completionRateText)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
                 
-                HStack {
-                    Text(statusText)
-                        .font(.caption)
-                        .foregroundColor(statusColor)
+                Spacer()
+                
+                HStack(spacing: 12) {
+                    // 完成按钮
+                    Button(action: {
+                        updateStatus(.completed)
+                    }) {
+                        Image(systemName: "checkmark.circle")
+                            .font(.title2)
+                            .foregroundColor(currentStatus == .completed ? .green : .gray)
+                    }
                     
-                    Spacer()
+                    // 跳过按钮
+                    Button(action: {
+                        updateStatus(.skipped)
+                    }) {
+                        Image(systemName: "minus.circle")
+                            .font(.title2)
+                            .foregroundColor(currentStatus == .skipped ? .orange : .gray)
+                    }
                     
-                    Text(completionRateText)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    // 重置按钮
+                    Button(action: {
+                        updateStatus(.none)
+                    }) {
+                        Image(systemName: "circle")
+                            .font(.title2)
+                            .foregroundColor(currentStatus == .none ? .blue : .gray)
+                    }
+                    
+                    // 更多操作按钮
+                    Menu {
+                        Button("编辑") {
+                            showingEditSheet = true
+                        }
+                        
+                        Button("删除", role: .destructive) {
+                            showingDeleteAlert = true
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                            .font(.title2)
+                            .foregroundColor(.gray)
+                    }
                 }
             }
             
-            Spacer()
-            
-            HStack(spacing: 12) {
-                // 完成按钮
-                Button(action: {
-                    updateStatus(.completed)
-                }) {
-                    Image(systemName: "checkmark.circle")
-                        .font(.title2)
-                        .foregroundColor(currentStatus == .completed ? .green : .gray)
-                }
-                
-                // 跳过按钮
-                Button(action: {
-                    updateStatus(.skipped)
-                }) {
-                    Image(systemName: "minus.circle")
-                        .font(.title2)
-                        .foregroundColor(currentStatus == .skipped ? .orange : .gray)
-                }
-                
-                // 重置按钮
-                Button(action: {
-                    updateStatus(.none)
-                }) {
-                    Image(systemName: "circle")
-                        .font(.title2)
-                        .foregroundColor(currentStatus == .none ? .blue : .gray)
-                }
-                
-                // 更多操作按钮
-                Menu {
-                    Button("编辑") {
-                        showingEditSheet = true
+            VStack(alignment: .leading, spacing: 8) {
+                TextField("可选备注（如原因/心情）", text: $noteText, axis: .vertical)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .lineLimit(1...2)
+                    .onSubmit {
+                        saveNote()
                     }
-                    
-                    Button("删除", role: .destructive) {
-                        showingDeleteAlert = true
-                    }
+                
+                Button {
+                    saveNote()
                 } label: {
-                    Image(systemName: "ellipsis.circle")
-                        .font(.title2)
-                        .foregroundColor(.gray)
+                    HStack(spacing: 6) {
+                        Image(systemName: "square.and.pencil")
+                        Text("保存备注")
+                    }
                 }
+                .font(.caption)
+                .foregroundColor(.blue)
             }
         }
         .padding()
         .background(Color(.systemBackground))
         .cornerRadius(8)
         .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
+        .onAppear {
+            noteText = habitViewModel.getTodayRecord(for: habit)?.note ?? ""
+        }
         .sheet(isPresented: $showingEditSheet) {
             EditHabitView(habit: habit, habitViewModel: habitViewModel)
         }
@@ -109,7 +135,16 @@ struct HabitCardView: View {
     
     // MARK: - Actions
     private func updateStatus(_ status: HabitStatus) {
-        habitViewModel.updateTodayRecord(for: habit, status: status)
+        habitViewModel.updateTodayRecord(for: habit, status: status, note: cleanedNote)
+    }
+    
+    private func saveNote() {
+        habitViewModel.updateTodayRecord(for: habit, status: currentStatus, note: cleanedNote)
+    }
+    
+    private var cleanedNote: String? {
+        let trimmed = noteText.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
     }
 }
 

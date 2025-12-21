@@ -252,4 +252,35 @@ class CoreDataManager: ObservableObject {
         
         return days > 0 ? Double(completedDays) / Double(days) : 0.0
     }
+    
+    /// 连续打卡天数（至少有一条完成记录算打卡，遇到未完成当天终止）
+    func currentStreak() -> Int {
+        let calendar = Calendar.current
+        var date = calendar.startOfDay(for: Date())
+        var streak = 0
+        
+        while true {
+            let dayStart = date
+            guard let dayEnd = calendar.date(byAdding: .day, value: 1, to: dayStart) else { break }
+            
+            let request: NSFetchRequest<DailyRecord> = DailyRecord.fetchRequest()
+            request.predicate = NSPredicate(format: "date >= %@ AND date < %@ AND status == %d", dayStart as NSDate, dayEnd as NSDate, 1)
+            
+            do {
+                let count = try context.count(for: request)
+                if count > 0 {
+                    streak += 1
+                    guard let previousDay = calendar.date(byAdding: .day, value: -1, to: dayStart) else { break }
+                    date = previousDay
+                } else {
+                    break
+                }
+            } catch {
+                print("Streak fetch error: \(error)")
+                break
+            }
+        }
+        
+        return streak
+    }
 }

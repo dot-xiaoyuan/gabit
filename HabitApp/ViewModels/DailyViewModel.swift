@@ -13,6 +13,7 @@ class DailyViewModel: ObservableObject {
     @Published var weeklySummary: String = ""
     
     private let coreDataManager = CoreDataManager.shared
+    private static let weeklySummaryCacheKey = "weekly_summary_cache"
     
     init() {
         loadTodayReview()
@@ -131,6 +132,7 @@ class DailyViewModel: ObservableObject {
         
         guard let apiKey = currentAPIKey(), !apiKey.isEmpty else {
             weeklySummary = generateMockWeeklySummary(for: habits)
+            cacheWeeklySummary(weeklySummary, for: Date())
             isWeeklyLoading = false
             errorMessage = "AI 配置缺失，已使用模拟周总结（需在构建配置中提供 OPENAI_API_KEY）"
             return
@@ -142,15 +144,27 @@ class DailyViewModel: ObservableObject {
                 let suggestion = try await service.fetchSuggestion(prompt: report)
                 await MainActor.run {
                     self.weeklySummary = suggestion
+                    self.cacheWeeklySummary(suggestion, for: Date())
                     self.isWeeklyLoading = false
                 }
             } catch {
                 await MainActor.run {
                     self.weeklySummary = self.generateMockWeeklySummary(for: habits)
+                    self.cacheWeeklySummary(self.weeklySummary, for: Date())
                     self.isWeeklyLoading = false
                     self.errorMessage = "AI 周总结生成失败，已使用模拟内容"
                 }
             }
+        }
+    }
+    
+    func loadWeeklySummaryFromCache(for habits: [Habit]) {
+        guard !habits.isEmpty else {
+            weeklySummary = "本周暂无习惯数据"
+            return
+        }
+        if let cached = cachedWeeklySummary(for: Date()) {
+            weeklySummary = cached
         }
     }
     
@@ -161,6 +175,7 @@ class DailyViewModel: ObservableObject {
             aiSuggestion: aiSuggestion
         )
         loadTodayReview()
+        Self.clearWeeklySummaryCache()
     }
     
     // MARK: - Weekly Summary
@@ -279,5 +294,28 @@ class DailyViewModel: ObservableObject {
         default:
             return "本周完成度偏低，先挑一个最重要且最容易执行的习惯，设定固定时间坚持一周。"
         }
+    }
+    
+    // MARK: - Weekly Summary Cache
+    private func cacheWeeklySummary(_ summary: String, for date: Date) {
+        var cache = UserDefaults.standard.dictionary(forKey: weeklySummaryCacheKey) as? [String: String] ?? [:]
+        cache[weekKey(for: date)] = summary
+        UserDefaults.standard.set(cache, forKey: Self.weeklySummaryCacheKey)
+    }
+    
+    private func cachedWeeklySummary(for date: Date) -> String? {
+        let cache = UserDefaults.standard.dictionary(forKey: Self.weeklySummaryCacheKey) as? [String: String]
+        return cache?[weekKey(for: date)]
+    }
+    
+    private func weekKey(for date: Date) -> String {
+        let start = date.startOfWeek
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: start)
+    }
+    
+    static func clearWeeklySummaryCache() {
+        UserDefaults.standard.removeObject(forKey: weeklySummaryCacheKey)
     }
 }

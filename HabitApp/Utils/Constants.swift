@@ -27,5 +27,7 @@ struct Constants {
         static let isFirstLaunch = "is_first_launch"
         static let reminderTime = "reminder_time"
         static let isSubscribed = "is_subscribed"
+        static let openAIKeyOverride = "openai_key_override"
+        static let reminderEnabled = "reminder_enabled"
     }
 }

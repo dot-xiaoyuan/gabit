@@ -42,12 +42,14 @@ class HabitViewModel: ObservableObject {
         let habit = coreDataManager.createHabit(title: title.trimmingCharacters(in: .whitespacesAndNewlines))
         habits.append(habit)
         errorMessage = nil
+        DailyViewModel.clearWeeklySummaryCache()
         return true
     }
     
     func deleteHabit(_ habit: Habit) {
         coreDataManager.deleteHabit(habit)
         habits.removeAll { $0.id == habit.id }
+        DailyViewModel.clearWeeklySummaryCache()
     }
     
     func updateHabit(_ habit: Habit, newTitle: String) -> Bool {
@@ -66,6 +68,7 @@ class HabitViewModel: ObservableObject {
         habit.title = newTitle.trimmingCharacters(in: .whitespacesAndNewlines)
         coreDataManager.save()
         errorMessage = nil
+        DailyViewModel.clearWeeklySummaryCache()
         return true
     }
     
@@ -87,6 +90,7 @@ class HabitViewModel: ObservableObject {
         
         // Core Data 更新不会自动触发 SwiftUI 刷新，这里手动通知
         objectWillChange.send()
+        DailyViewModel.clearWeeklySummaryCache()
     }
     
     func getTodayRecord(for habit: Habit) -> DailyRecord? {

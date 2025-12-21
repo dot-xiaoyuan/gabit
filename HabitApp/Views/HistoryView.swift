@@ -6,6 +6,9 @@ struct HistoryView: View {
     @EnvironmentObject private var dailyViewModel: DailyViewModel
     @EnvironmentObject private var subscriptionManager: SubscriptionManager
     @StateObject private var historyViewModel = HistoryViewModel()
+    @State private var noteDrafts: [UUID: String] = [:]
+    @State private var saveMessage: String = ""
+    @State private var showSaveToast = false
     
     var body: some View {
         NavigationView {
@@ -100,24 +103,80 @@ struct HistoryView: View {
                             .padding(.vertical, 24)
                         } else {
                             ForEach(habitViewModel.habits) { habit in
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(habit.title ?? "")
-                                            .font(.subheadline)
-                                            .fontWeight(.medium)
-                                        Text(historyViewModel.status(for: habit).text)
-                                            .font(.caption)
-                                            .foregroundColor(historyViewModel.status(for: habit).color)
-                                    }
-                                    Spacer()
-                                    Circle()
-                                        .fill(historyViewModel.status(for: habit).color.opacity(0.15))
-                                        .frame(width: 28, height: 28)
-                                        .overlay(
-                                            Image(systemName: historyViewModel.status(for: habit).icon)
+                                VStack(alignment: .leading, spacing: 8) {
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(habit.title ?? "")
+                                                .font(.subheadline)
+                                                .fontWeight(.medium)
+                                            Text(historyViewModel.status(for: habit).text)
+                                                .font(.caption)
                                                 .foregroundColor(historyViewModel.status(for: habit).color)
-                                                .font(.footnote)
+                                        }
+                                        Spacer()
+                                        HStack(spacing: 10) {
+                                            Button {
+                                                guard let id = habit.id else { return }
+                                                historyViewModel.updateRecord(for: habit, status: .completed, note: noteDrafts[id])
+                                                showToast("已保存状态为完成")
+                                            } label: {
+                                                Image(systemName: "checkmark.circle")
+                                                    .foregroundColor(historyViewModel.status(for: habit) == .completed ? .green : .gray)
+                                            }
+                                            
+                                            Button {
+                                                guard let id = habit.id else { return }
+                                                historyViewModel.updateRecord(for: habit, status: .skipped, note: noteDrafts[id])
+                                                showToast("已保存状态为跳过")
+                                            } label: {
+                                                Image(systemName: "minus.circle")
+                                                    .foregroundColor(historyViewModel.status(for: habit) == .skipped ? .orange : .gray)
+                                            }
+                                            
+                                            Button {
+                                                guard let id = habit.id else { return }
+                                                historyViewModel.updateRecord(for: habit, status: .none, note: noteDrafts[id])
+                                                showToast("已重置状态")
+                                            } label: {
+                                                Image(systemName: "circle")
+                                                    .foregroundColor(historyViewModel.status(for: habit) == .none ? .blue : .gray)
+                                            }
+                                        }
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        TextField(
+                                            "备注（选填）",
+                                            text: Binding(
+                                                get: {
+                                                    guard let id = habit.id else { return "" }
+                                                    return noteDrafts[id] ?? ""
+                                                },
+                                                set: { newValue in
+                                                    guard let id = habit.id else { return }
+                                                    noteDrafts[id] = newValue
+                                                }
+                                            ),
+                                            axis: .vertical
                                         )
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .onSubmit {
+                                            guard let id = habit.id else { return }
+                                            historyViewModel.updateRecord(for: habit, note: noteDrafts[id])
+                                            showToast("备注已保存")
+                                        }
+                                        .lineLimit(1...2)
+                                        
+                                        Button {
+                                            guard let id = habit.id else { return }
+                                            historyViewModel.updateRecord(for: habit, note: noteDrafts[id])
+                                            showToast("备注已保存")
+                                        } label: {
+                                            Text("保存备注")
+                                                .font(.caption)
+                                        }
+                                        .foregroundColor(.blue)
+                                    }
                                 }
                                 .padding(.vertical, 6)
                                 
@@ -134,9 +193,9 @@ struct HistoryView: View {
                     
                     // 复盘与 AI 建议
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("复盘 & 建议")
-                            .font(.title2)
-                            .fontWeight(.semibold)
+                    Text("复盘 & 建议")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                         
                         VStack(alignment: .leading, spacing: 8) {
                             HStack(spacing: 8) {
@@ -182,9 +241,51 @@ struct HistoryView: View {
             .onAppear {
                 historyViewModel.load(for: historyViewModel.selectedDate)
                 habitViewModel.loadHabits()
+                dailyViewModel.loadWeeklySummaryFromCache(for: habitViewModel.habits)
+                syncNoteDrafts()
             }
             .onReceive(NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)) { _ in
                 historyViewModel.load(for: historyViewModel.selectedDate)
+            }
+            .onChange(of: historyViewModel.selectedDate) { _ in
+                syncNoteDrafts()
+            }
+            .onChange(of: habitViewModel.habits.count) { _ in
+                syncNoteDrafts()
+            }
+            .overlay(alignment: .top) {
+                if showSaveToast {
+                    Text(saveMessage)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.black.opacity(0.75))
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                        .padding(.top, 12)
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                }
+            }
+        }
+    }
+    
+    private func syncNoteDrafts() {
+        var drafts: [UUID: String] = [:]
+        for habit in habitViewModel.habits {
+            if let id = habit.id {
+                drafts[id] = historyViewModel.note(for: habit)
+            }
+        }
+        noteDrafts = drafts
+    }
+    
+    private func showToast(_ message: String) {
+        withAnimation {
+            saveMessage = message
+            showSaveToast = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            withAnimation {
+                showSaveToast = false
             }
         }
     }
