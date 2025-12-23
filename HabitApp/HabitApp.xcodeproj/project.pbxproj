@@ -28,6 +28,8 @@
 		AA000000000000000000001D /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000001E /* AddHabitView.swift */; };
 		AA000000000000000000001F /* EditHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000020 /* EditHabitView.swift */; };
 		AA0000000000000000000036 /* HabitApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000037 /* HabitApp.xcdatamodeld */; };
+		AA0000000000000000000041 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000043 /* KeychainHelper.swift */; };
+		AA0000000000000000000042 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000044 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		AA000000000000000000001E /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		AA0000000000000000000020 /* EditHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitView.swift; sourceTree = "<group>"; };
 		AA0000000000000000000037 /* HabitApp.xcdatamodeld */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitApp.xcdatamodeld; sourceTree = "<group>"; };
+		AA0000000000000000000043 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		AA0000000000000000000044 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 				AA000000000000000000003B /* OpenAIService.swift */,
 				AA000000000000000000003F /* AIConfig.swift */,
 				AA000000000000000000003D /* SubscriptionManager.swift */,
+				AA0000000000000000000043 /* KeychainHelper.swift */,
+				AA0000000000000000000044 /* NotificationManager.swift */,
 				AA0000000000000000000037 /* HabitApp.xcdatamodeld */,
 			);
 			path = Services;
@@ -245,6 +251,8 @@
 				AA000000000000000000001D /* AddHabitView.swift in Sources */,
 				AA000000000000000000001F /* EditHabitView.swift in Sources */,
 				AA0000000000000000000036 /* HabitApp.xcdatamodeld in Sources */,
+				AA0000000000000000000041 /* KeychainHelper.swift in Sources */,
+				AA0000000000000000000042 /* NotificationManager.swift in Sources */,
 				AA0000000000000000000001 /* HabitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
