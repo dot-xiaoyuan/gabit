@@ -1,5 +1,6 @@
 import SwiftUI
 import UserNotifications
+import UIKit
 
 struct ProfileView: View {
     @StateObject private var subscriptionManager = SubscriptionManager.shared
@@ -184,6 +185,13 @@ struct ProfileView: View {
                         Text("通知权限：\(notificationPermission)")
                             .font(.caption)
                             .foregroundColor(.secondary)
+                        if notificationPermission == "已拒绝" {
+                            Button("前往系统设置开启") {
+                                openSystemSettings()
+                            }
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                        }
                     }
                 }
             }
@@ -255,6 +263,12 @@ struct ProfileView: View {
             DispatchQueue.main.async {
                 notificationPermission = status
             }
+        }
+    }
+    
+    private func openSystemSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url)
         }
     }
 }
