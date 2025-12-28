@@ -99,6 +99,12 @@ struct TodayView: View {
                                 .foregroundColor(.green)
                                 .transition(.opacity)
                         }
+                        
+                        if !dailyViewModel.reviewText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && dailyViewModel.reviewText.count > 180 {
+                            Text("提示：复盘内容较长，建议尽量控制在 200 字内")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
                     }
                     .padding()
                     .background(Color(.systemGray6))
