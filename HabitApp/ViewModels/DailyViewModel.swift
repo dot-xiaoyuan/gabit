@@ -11,6 +11,8 @@ class DailyViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var showSaveSuccess = false
     @Published var weeklySummary: String = ""
+    @Published var usingMockSuggestion = false
+    @Published var usingMockWeeklySummary = false
     
     private let coreDataManager = CoreDataManager.shared
     private static let weeklySummaryCacheKey = "weekly_summary_cache"
@@ -56,6 +58,7 @@ class DailyViewModel: ObservableObject {
     func generateAISuggestion(for habits: [Habit]) {
         isLoading = true
         errorMessage = nil
+        usingMockSuggestion = false
         let prompt = buildPrompt(for: habits)
         
         // 如果没有配置 Key，直接走模拟
@@ -64,6 +67,7 @@ class DailyViewModel: ObservableObject {
             saveAISuggestion()
             isLoading = false
             errorMessage = "AI 配置缺失，已使用模拟建议（需在构建配置中提供 OPENAI_API_KEY）"
+            usingMockSuggestion = true
             return
         }
         
@@ -75,6 +79,7 @@ class DailyViewModel: ObservableObject {
                     self.aiSuggestion = suggestion
                     self.saveAISuggestion()
                     self.isLoading = false
+                    self.usingMockSuggestion = false
                 }
             } catch {
                 await MainActor.run {
@@ -82,6 +87,7 @@ class DailyViewModel: ObservableObject {
                     self.saveAISuggestion()
                     self.isLoading = false
                     self.errorMessage = "AI 生成失败，已使用模拟建议"
+                    self.usingMockSuggestion = true
                 }
             }
         }
@@ -118,10 +124,12 @@ class DailyViewModel: ObservableObject {
     func generateWeeklySummary(for habits: [Habit]) {
         if habits.isEmpty {
             weeklySummary = "本周暂无习惯数据"
+            usingMockWeeklySummary = false
             return
         }
         
         isWeeklyLoading = true
+        usingMockWeeklySummary = false
         let report = weeklyCompletionReport(for: habits)
         
         guard SubscriptionManager.shared.isSubscribed else {
@@ -135,6 +143,7 @@ class DailyViewModel: ObservableObject {
             cacheWeeklySummary(weeklySummary, for: Date())
             isWeeklyLoading = false
             errorMessage = "AI 配置缺失，已使用模拟周总结（需在构建配置中提供 OPENAI_API_KEY）"
+            usingMockWeeklySummary = true
             return
         }
         
@@ -146,6 +155,7 @@ class DailyViewModel: ObservableObject {
                     self.weeklySummary = suggestion
                     self.cacheWeeklySummary(suggestion, for: Date())
                     self.isWeeklyLoading = false
+                    self.usingMockWeeklySummary = false
                 }
             } catch {
                 await MainActor.run {
@@ -153,6 +163,7 @@ class DailyViewModel: ObservableObject {
                     self.cacheWeeklySummary(self.weeklySummary, for: Date())
                     self.isWeeklyLoading = false
                     self.errorMessage = "AI 周总结生成失败，已使用模拟内容"
+                    self.usingMockWeeklySummary = true
                 }
             }
         }

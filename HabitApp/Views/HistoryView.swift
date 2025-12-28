@@ -26,22 +26,27 @@ struct HistoryView: View {
                                 .foregroundColor(.secondary)
                         }
                         
-                        if subscriptionManager.isSubscribed {
-                            if dailyViewModel.isWeeklyLoading {
-                                HStack {
-                                    ProgressView()
-                                    Text("正在生成周总结…")
-                                        .foregroundColor(.gray)
+                            if subscriptionManager.isSubscribed {
+                                if dailyViewModel.isWeeklyLoading {
+                                    HStack {
+                                        ProgressView()
+                                        Text("正在生成周总结…")
+                                            .foregroundColor(.gray)
                                 }
-                            } else {
-                                if dailyViewModel.weeklySummary.isEmpty {
-                                    Text("点击生成 AI 周总结，获得针对本周的建议")
-                                        .foregroundColor(.gray)
                                 } else {
-                                    Text(dailyViewModel.weeklySummary)
-                                        .multilineTextAlignment(.leading)
+                                    if dailyViewModel.weeklySummary.isEmpty {
+                                        Text("点击生成 AI 周总结，获得针对本周的建议")
+                                            .foregroundColor(.gray)
+                                    } else {
+                                        Text(dailyViewModel.weeklySummary)
+                                            .multilineTextAlignment(.leading)
+                                        if dailyViewModel.usingMockWeeklySummary {
+                                            Text("当前使用模拟周总结，需提供有效 API Key")
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+                                    }
                                 }
-                            }
                             
                             Button("生成 AI 周总结") {
                                 dailyViewModel.generateWeeklySummary(for: habitViewModel.habits)

@@ -134,6 +134,11 @@ struct TodayView: View {
                                 .padding()
                                 .background(Color.blue.opacity(0.1))
                                 .cornerRadius(8)
+                            if dailyViewModel.usingMockSuggestion {
+                                Text("当前使用模拟建议，需提供有效 API Key")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                     .padding()
