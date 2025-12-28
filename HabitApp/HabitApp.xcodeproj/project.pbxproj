@@ -31,6 +31,9 @@
 		AA0000000000000000000041 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000043 /* KeychainHelper.swift */; };
 		AA0000000000000000000042 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000044 /* NotificationManager.swift */; };
 		AA0000000000000000000045 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000046 /* StoreKitManager.swift */; };
+		AA0000000000000000000047 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004A /* AboutView.swift */; };
+		AA0000000000000000000048 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004B /* PrivacyPolicyView.swift */; };
+		AA0000000000000000000049 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004C /* TermsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		AA0000000000000000000043 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		AA0000000000000000000044 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		AA0000000000000000000046 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		AA000000000000000000004A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		AA000000000000000000004B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		AA000000000000000000004C /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,9 @@
 				AA000000000000000000000A /* TodayView.swift */,
 				AA000000000000000000000C /* HistoryView.swift */,
 				AA000000000000000000000E /* ProfileView.swift */,
+				AA000000000000000000004A /* AboutView.swift */,
+				AA000000000000000000004B /* PrivacyPolicyView.swift */,
+				AA000000000000000000004C /* TermsView.swift */,
 				AA000000000000000000002B /* Components */,
 			);
 			path = Views;
@@ -258,6 +267,9 @@
 				AA0000000000000000000042 /* NotificationManager.swift in Sources */,
 				AA0000000000000000000045 /* StoreKitManager.swift in Sources */,
 				AA0000000000000000000001 /* HabitApp.swift in Sources */,
+				AA0000000000000000000047 /* AboutView.swift in Sources */,
+				AA0000000000000000000048 /* PrivacyPolicyView.swift in Sources */,
+				AA0000000000000000000049 /* TermsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -107,15 +107,15 @@ struct ProfileView: View {
                 
                 // 关于
                 Section("关于") {
-                    NavigationLink(destination: Text("关于应用")) {
+                    NavigationLink(destination: AboutView()) {
                         Label("关于", systemImage: "info.circle")
                     }
                     
-                    NavigationLink(destination: Text("隐私政策")) {
+                    NavigationLink(destination: PrivacyPolicyView()) {
                         Label("隐私政策", systemImage: "hand.raised")
                     }
                     
-                    NavigationLink(destination: Text("用户协议")) {
+                    NavigationLink(destination: TermsView()) {
                         Label("用户协议", systemImage: "doc.text")
                     }
                 }
