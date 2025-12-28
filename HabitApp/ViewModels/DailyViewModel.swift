@@ -298,7 +298,7 @@ class DailyViewModel: ObservableObject {
     
     // MARK: - Weekly Summary Cache
     private func cacheWeeklySummary(_ summary: String, for date: Date) {
-        var cache = UserDefaults.standard.dictionary(forKey: weeklySummaryCacheKey) as? [String: String] ?? [:]
+        var cache = UserDefaults.standard.dictionary(forKey: Self.weeklySummaryCacheKey) as? [String: String] ?? [:]
         cache[weekKey(for: date)] = summary
         UserDefaults.standard.set(cache, forKey: Self.weeklySummaryCacheKey)
     }

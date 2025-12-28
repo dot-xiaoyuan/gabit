@@ -58,12 +58,35 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        Button(subscriptionManager.isSubscribed ? "取消" : "订阅") {
-                            subscriptionManager.toggle()
+                        if subscriptionManager.isProcessing {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                        } else {
+                            Button(subscriptionManager.isSubscribed ? "已订阅" : "立即订阅") {
+                                Task {
+                                    await subscriptionManager.subscribe()
+                                }
+                            }
+                            .disabled(subscriptionManager.isSubscribed)
+                            .foregroundColor(.blue)
                         }
-                        .foregroundColor(.blue)
                     }
                     .padding(.vertical, 4)
+                    
+                    HStack {
+                        Button("恢复购买") {
+                            Task {
+                                await subscriptionManager.restore()
+                            }
+                        }
+                        .disabled(subscriptionManager.isProcessing)
+                        
+                        if let error = subscriptionManager.errorMessage {
+                            Text(error)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 }
                 
                 // 功能列表

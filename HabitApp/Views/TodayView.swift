@@ -23,10 +23,13 @@ struct TodayView: View {
                                     .font(.caption)
                                     .foregroundColor(.gray)
                                 Button("升级到高级版") {
-                                    subscriptionManager.subscribe()
+                                    Task {
+                                        await subscriptionManager.subscribe()
+                                    }
                                 }
                                 .font(.caption)
                                 .foregroundColor(.blue)
+                                .disabled(subscriptionManager.isProcessing)
                             }
                             Spacer()
                         }

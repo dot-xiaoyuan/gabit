@@ -22,6 +22,12 @@ struct Constants {
         static let weeklySummary = "weekly_summary"
     }
     
+    // 内购产品 ID
+    struct Product {
+        // 示例 ID，发布前请与 App Store Connect 保持一致
+        static let subscription = "com.habitapp.subscription.pro"
+    }
+    
     // 用户默认设置键
     struct UserDefaults {
         static let isFirstLaunch = "is_first_launch"
