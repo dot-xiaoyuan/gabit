@@ -34,6 +34,8 @@
 		AA0000000000000000000047 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004A /* AboutView.swift */; };
 		AA0000000000000000000048 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004B /* PrivacyPolicyView.swift */; };
 		AA0000000000000000000049 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004C /* TermsView.swift */; };
+		AA000000000000000000004D /* HabitManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004F /* HabitManagementView.swift */; };
+		AA000000000000000000004E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000050 /* StatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		AA000000000000000000004A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		AA000000000000000000004B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AA000000000000000000004C /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		AA000000000000000000004F /* HabitManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagementView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000050 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				AA000000000000000000004A /* AboutView.swift */,
 				AA000000000000000000004B /* PrivacyPolicyView.swift */,
 				AA000000000000000000004C /* TermsView.swift */,
+				AA000000000000000000004F /* HabitManagementView.swift */,
+				AA0000000000000000000050 /* StatsView.swift */,
 				AA000000000000000000002B /* Components */,
 			);
 			path = Views;
@@ -270,6 +276,8 @@
 				AA0000000000000000000047 /* AboutView.swift in Sources */,
 				AA0000000000000000000048 /* PrivacyPolicyView.swift in Sources */,
 				AA0000000000000000000049 /* TermsView.swift in Sources */,
+				AA000000000000000000004D /* HabitManagementView.swift in Sources */,
+				AA000000000000000000004E /* StatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

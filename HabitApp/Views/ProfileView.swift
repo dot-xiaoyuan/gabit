@@ -92,11 +92,11 @@ struct ProfileView: View {
                 
                 // 功能列表
                 Section("功能") {
-                    NavigationLink(destination: Text("习惯管理")) {
+                    NavigationLink(destination: HabitManagementView()) {
                         Label("管理习惯", systemImage: "list.bullet")
                     }
                     
-                    NavigationLink(destination: Text("数据统计")) {
+                    NavigationLink(destination: StatsView()) {
                         Label("数据统计", systemImage: "chart.bar")
                     }
                     
