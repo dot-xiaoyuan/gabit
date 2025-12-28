@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct OpenAIMessage: Codable {
     let role: String
@@ -9,6 +10,7 @@ struct OpenAIRequest: Codable {
     let model: String
     let messages: [OpenAIMessage]
     let temperature: Double
+    let user: String?
 }
 
 struct OpenAIResponse: Codable {
@@ -22,6 +24,7 @@ enum OpenAIServiceError: Error {
     case missingAPIKey
     case invalidResponse
     case noSuggestions
+    case redacted
 }
 
 final class OpenAIService {
@@ -31,6 +34,14 @@ final class OpenAIService {
     init(apiKey: String, session: URLSession = .shared) {
         self.apiKey = apiKey
         self.session = session
+    }
+    
+    private func anonymizedUserIdentifier() -> String? {
+        // 简单匿名标识，避免发送可识别信息
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            return String(id.prefix(8))
+        }
+        return nil
     }
     
     func fetchSuggestion(prompt: String, model: String = "gpt-3.5-turbo") async throws -> String {
@@ -45,7 +56,8 @@ final class OpenAIService {
                 OpenAIMessage(role: "system", content: systemPrompt),
                 OpenAIMessage(role: "user", content: prompt)
             ],
-            temperature: 0.7
+            temperature: 0.7,
+            user: anonymizedUserIdentifier()
         )
         
         var request = URLRequest(url: url)
