@@ -329,4 +329,11 @@ class DailyViewModel: ObservableObject {
     static func clearWeeklySummaryCache() {
         UserDefaults.standard.removeObject(forKey: weeklySummaryCacheKey)
     }
+    
+    /// 清空内存中的周总结，提示用户重新生成
+    @MainActor
+    func resetWeeklySummaryMemory() {
+        weeklySummary = ""
+        usingMockWeeklySummary = false
+    }
 }

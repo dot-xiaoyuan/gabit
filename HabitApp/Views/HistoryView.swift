@@ -123,6 +123,7 @@ struct HistoryView: View {
                                             Button {
                                                 guard let id = habit.id else { return }
                                                 historyViewModel.updateRecord(for: habit, status: .completed, note: noteDrafts[id])
+                                                Task { @MainActor in dailyViewModel.resetWeeklySummaryMemory() }
                                                 showToast("已保存状态为完成")
                                             } label: {
                                                 Image(systemName: "checkmark.circle")
@@ -132,6 +133,7 @@ struct HistoryView: View {
                                             Button {
                                                 guard let id = habit.id else { return }
                                                 historyViewModel.updateRecord(for: habit, status: .skipped, note: noteDrafts[id])
+                                                Task { @MainActor in dailyViewModel.resetWeeklySummaryMemory() }
                                                 showToast("已保存状态为跳过")
                                             } label: {
                                                 Image(systemName: "minus.circle")
@@ -141,6 +143,7 @@ struct HistoryView: View {
                                             Button {
                                                 guard let id = habit.id else { return }
                                                 historyViewModel.updateRecord(for: habit, status: .none, note: noteDrafts[id])
+                                                Task { @MainActor in dailyViewModel.resetWeeklySummaryMemory() }
                                                 showToast("已重置状态")
                                             } label: {
                                                 Image(systemName: "circle")
@@ -168,6 +171,7 @@ struct HistoryView: View {
                                         .onSubmit {
                                             guard let id = habit.id else { return }
                                             historyViewModel.updateRecord(for: habit, note: noteDrafts[id])
+                                            Task { @MainActor in dailyViewModel.resetWeeklySummaryMemory() }
                                             showToast("备注已保存")
                                         }
                                         .lineLimit(1...2)
@@ -175,6 +179,7 @@ struct HistoryView: View {
                                         Button {
                                             guard let id = habit.id else { return }
                                             historyViewModel.updateRecord(for: habit, note: noteDrafts[id])
+                                            Task { @MainActor in dailyViewModel.resetWeeklySummaryMemory() }
                                             showToast("备注已保存")
                                         } label: {
                                             Text("保存备注")
