@@ -4,6 +4,7 @@ struct TodayView: View {
     @EnvironmentObject private var habitViewModel: HabitViewModel
     @EnvironmentObject private var dailyViewModel: DailyViewModel
     @EnvironmentObject private var subscriptionManager: SubscriptionManager
+    var onShowProfile: () -> Void = {}
     @State private var showingAddHabit = false
     @State private var newHabitTitle = ""
     
@@ -144,6 +145,11 @@ struct TodayView: View {
                                 Text("当前使用模拟建议，需提供有效 API Key")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
+                                Button("前往设置 API Key") {
+                                    onShowProfile()
+                                }
+                                .font(.caption)
+                                .foregroundColor(.blue)
                             }
                         }
                     }
