@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22758" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LaunchScreenViewController">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22756"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="launch-screen-scene">
+            <objects>
+                <viewController id="LaunchScreenViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="launch-screen-view" userLabel="LaunchScreen">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="stack">
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leaf.circle.fill" id="logoImage">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="logoWidth"/>
+                                            <constraint firstAttribute="height" constant="72" id="logoHeight"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label text="习惯追踪" textAlignment="center" id="appNameLabel">
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label text="养成好习惯，从今天开始" textAlignment="center" id="subtitleLabel">
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.3333333333" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.949" green="0.957" blue="0.973" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="stack" firstAttribute="centerX" secondItem="launch-screen-view" secondAttribute="centerX" id="centerX"/>
+                            <constraint firstItem="stack" firstAttribute="centerY" secondItem="launch-screen-view" secondAttribute="centerY" id="centerY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="safe-area"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="firstResponder" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="105.80357142857143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="leaf.circle.fill" catalog="system" width="128" height="128"/>
+    </resources>
+</document>

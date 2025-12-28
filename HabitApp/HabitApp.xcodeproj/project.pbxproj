@@ -36,6 +36,7 @@
 		AA0000000000000000000049 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004C /* TermsView.swift */; };
 		AA000000000000000000004D /* HabitManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000004F /* HabitManagementView.swift */; };
 		AA000000000000000000004E /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000050 /* StatsView.swift */; };
+		AA0000000000000000000052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000053 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		AA000000000000000000004C /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		AA000000000000000000004F /* HabitManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagementView.swift; sourceTree = "<group>"; };
 		AA0000000000000000000050 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		AA0000000000000000000053 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				AA0000000000000000000027 /* ViewModels */,
 				AA0000000000000000000028 /* Services */,
 				AA0000000000000000000029 /* Utils */,
+				AA0000000000000000000053 /* LaunchScreen.storyboard */,
 				AA0000000000000000000006 /* Assets.xcassets */,
 				AA000000000000000000002A /* Preview Content */,
 			);
@@ -242,6 +245,7 @@
 			files = (
 				AA0000000000000000000007 /* Preview Assets.xcassets in Resources */,
 				AA0000000000000000000005 /* Assets.xcassets in Resources */,
+				AA0000000000000000000052 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
